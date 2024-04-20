@@ -1,4 +1,5 @@
-import { showAlert } from "../helpers/alerta";
+import { alerta, showAlert } from "../helpers/alerta";
+import clienteAxios from "../helpers/clienteAxios";
 
 (() => {
   const formulario = document.querySelector("#form");
@@ -25,13 +26,31 @@ import { showAlert } from "../helpers/alerta";
       return;
     }
 
+    // Validar que las contrasenas sean iguales
+    if(password !== confirmarPassword) {
+        console.log('Las contrasenas no son iguales');
+        alerta('Las password no son iguales', 'error', formulario);
+        return;
+    }
+
     // Comenzar a validar el usuario
+    // Creamo el objeto usuario
     const nuevoUsuario = {
       userName,
       nombre,
       email,
       password,
     };
+
+    // Nos comunicamos con la API
+    try {
+        const {data} = await clienteAxios.post('/usuarios', nuevoUsuario);
+    console.log(data);
+    alerta('Usuario Registrado, Revisa tu email', 'succes', formulario);
+    } catch (error) {
+        console.log(error);
+        alerta(error.response.data.msg, 'error', formulario);
+    }
 
     console.log(nuevoUsuario);
   });

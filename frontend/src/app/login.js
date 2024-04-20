@@ -1,4 +1,4 @@
-import { showAlert } from "../helpers/alerta";
+import { alerta, showAlert } from "../helpers/alerta";
 import clienteAxios from "../helpers/clienteAxios";
 
 (function () {
@@ -15,7 +15,7 @@ import clienteAxios from "../helpers/clienteAxios";
 
     if (camposVacios) {
       console.log("No se permiten campos vacios");
-      showAlert("No se permiten campos vacios", "error", formulario);
+      alerta("No se permiten campos vacios", "error", formulario);
       return;
     }
 
@@ -25,13 +25,13 @@ import clienteAxios from "../helpers/clienteAxios";
         email,
         password,
       });
-      
-      showAlert('Iniciando Sesion', 'succes', formulario);
+      // Mostrar alerta
+      alerta('Iniciando Sesion', 'succes', formulario);
       localStorage.setItem('token', data.token);
       window.location.href = '../pages/administrarTareas.html'      
     } catch (error) {
       console.log(error.response);
-      showAlert(error.response.data.msg, 'error', formulario);
+      alerta(error.response.data.msg, 'error', formulario);
     }
 
     console.log(email);
