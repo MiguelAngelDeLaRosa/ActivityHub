@@ -4,7 +4,7 @@ const mongo_url = "mongodb+srv://migueldelarosa229290:miguelAngelo19@activityhub
 
 const conectarDB = async () => {
     try {
-        const db = await mongoose.connect(mongo_url, {
+        const db = await mongoose.connect(process.env.MONGO_URI, {  // usen las variables de entorno para evitar conflictos en nuestras ramas
         });
         const url = `${db.connection.host}, ${db.connection.port}`;
         console.log(`Apliacion conectada a la DB de: ${url}`);
