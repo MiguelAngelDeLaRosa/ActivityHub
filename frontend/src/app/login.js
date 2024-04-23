@@ -26,9 +26,11 @@ import clienteAxios from "../helpers/clienteAxios";
         password,
       });
       // Mostrar alerta
+      console.log(data);
       alerta('Iniciando Sesion', 'succes', formulario);
       localStorage.setItem('token', data.token);
-      window.location.href = '../pages/administrarTareas.html'      
+      localStorage.setItem('user', JSON.stringify(data));
+      window.location.href = '../pages/administrarTareas.html';      
     } catch (error) {
       console.log(error.response);
       alerta(error.response.data.msg, 'error', formulario);
