@@ -24,7 +24,7 @@ const emailRegistro = async (datos) => {
       text: 'Comprueba tu cuenta en TSKM',
       html: `<p>Hola: ${nombre}, comprueba tu cuenta en TSKM.</p>
       <P>Tu cuenta ya casi esta lista, solo debes comprobarla en el siguiente enlace:
-      <a href="${process.env.FRONTEND_URL}/confirmar/${token}">Comprobar Cuenta</a></P>
+      <a href="${process.env.FRONTEND_URL}/src/pages/confirmarCuenta.html?token=${token}">Comprobar Cuenta</a></P>
   
       <p>Si tu no creaste esta cuenta, ignora este mensaje</p>
       `,
