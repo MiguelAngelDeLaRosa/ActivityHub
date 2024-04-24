@@ -66,3 +66,5 @@ class ListaDAO {
         }
     }
 }
+
+module.exports = ListaDAO
