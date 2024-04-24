@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import conectarDB from "./config/db.js";
 import usuarioRouter from './routes/usuarioRoutes.js';
+import tareaRouter from './routes/tareaRoutes.js';
+import listaRouter from './routes/listaRoutes.js';
 
 const app = express();
 
@@ -28,6 +30,8 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use('/api/usuarios', usuarioRouter);
+app.use('/api/tareas', tareaRouter);
+app.use('/api/listas', listaRouter);
 
 const PORT = process.env.PORT || 4000;
 
