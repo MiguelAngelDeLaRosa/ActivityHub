@@ -1,5 +1,8 @@
-const ListaDAO = require('../dataAcces/listaDAO');
-const TareaDAO = require('../dataAcces/TareaDAO');
+// const ListaDAO = require('../dataAcces/listaDAO');
+// const TareaDAO = require('../dataAcces/TareaDAO');
+
+import ListaDAO from '../dataAcces/listaDAO.js';
+import TareaDAO from '../dataAcces/TareaDAO.js';
 
 class ListaController {
     static async crearLista(req, res){
@@ -123,4 +126,4 @@ class ListaController {
     }
 }
 
-module.exports = ListaController;
+export default ListaController;

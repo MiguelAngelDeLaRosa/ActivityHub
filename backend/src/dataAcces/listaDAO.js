@@ -1,5 +1,7 @@
-const {Lista} = require('../models/Lista');
-const Tarea = require('../models/Tarea');
+
+
+import Tarea from '../models/Tarea.js';
+import Lista from '../models/Lista.js';
 
 class ListaDAO {
     constructor(){}
@@ -67,4 +69,4 @@ class ListaDAO {
     }
 }
 
-module.exports = ListaDAO
+export default ListaDAO

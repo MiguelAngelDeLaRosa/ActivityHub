@@ -1,4 +1,4 @@
-const Tarea = require('../models/Tarea');
+import Tarea from '../models/Tarea.js';
 
 class TareaDAO {
     constructor(){}
@@ -45,4 +45,4 @@ class TareaDAO {
     }
 }
 
-module.exports = TareaDAO;
+export default TareaDAO

@@ -1,4 +1,5 @@
-const TareaDAO = require('../dataAcces/TareaDAO');
+
+import TareaDAO from '../dataAcces/TareaDAO.js';
 
 
 class TareaController {
@@ -79,4 +80,4 @@ class TareaController {
     }
 }
 
-module.exports = TareaController;
+export default TareaController;

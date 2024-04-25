@@ -43,4 +43,6 @@ const tareaSchema = mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Tarea', tareaSchema);
+const Tarea = mongoose.model('Tarea', tareaSchema);
+
+export default Tarea;

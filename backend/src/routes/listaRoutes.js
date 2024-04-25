@@ -1,5 +1,5 @@
 import express from 'express'
-const ListaController = require('../controllers/ListaController');
+import ListaController from '../controllers/ListaController.js';
 
 const router = express.Router();
 
@@ -11,4 +11,4 @@ router.get('/', ListaController.obtenerListas)
 router.put('/agregar/:id', ListaController.agregarTarea);
 router.put('/remover/:id', ListaController.removerTarea);
 
-module.exports = router
+export default router
