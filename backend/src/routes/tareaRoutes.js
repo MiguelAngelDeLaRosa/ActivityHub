@@ -1,5 +1,6 @@
 import express from 'express'
-const TareaController = require('../controllers/TareaController');
+
+import TareaController from '../controllers/TareaController.js';
 
 const router = express.Router();
 
@@ -9,4 +10,4 @@ router.delete('/:id', TareaController.eliminarTarea);
 router.get('/:id', TareaController.obtenerTareaPorId);
 router.get('/', TareaController.obtenerTareas);
 
-module.exports = router;
+export default router;

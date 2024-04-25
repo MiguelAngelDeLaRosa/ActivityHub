@@ -16,4 +16,6 @@ const listaSchema = mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model("Lista", listaSchema);
+const Lista = mongoose.model("Lista", listaSchema);
+
+export default Lista;
