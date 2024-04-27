@@ -8,7 +8,9 @@ class TareaDAO {
             const tarea = new Tarea(tareaData);
             return await tarea.save();
         } catch(error){
-            throw error
+            // throw error
+            console.log(error);
+            return error
         }
     }
 
