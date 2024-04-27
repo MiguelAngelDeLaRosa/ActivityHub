@@ -19,8 +19,9 @@ const tareaSchema = mongoose.Schema({
     },
     fechaVencimiento: {
         type: Date,
-        required: true,
-        trim: true
+        required: false,
+        trim: true,
+        default: null,
     },
     estado: {
         type: String,
@@ -35,13 +36,14 @@ const tareaSchema = mongoose.Schema({
     listaPerteneciente: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Lista",
-        required: true,
-        default: null
+        required: false,
+        default: null,
     },
     recordatorio: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Recordatorio",
-        required: true
+        required: false,
+        default: null,
     },
     usuario: {
         type: mongoose.Schema.Types.ObjectId,

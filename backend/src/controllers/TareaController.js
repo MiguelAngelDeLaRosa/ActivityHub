@@ -5,14 +5,19 @@ import TareaDAO from '../dataAcces/TareaDAO.js';
 class TareaController {
     static async crearTarea(req, res) {
         try {
-            const {titulo, descripcion, fechaInicio, 
-                fechaVencimiento, estado, prioridad, listaPerteneciente, recordatorio} = req.body;
-                if (!titulo || !descripcion || !fechaInicio || !fechaVencimiento || !estado 
-                    || !prioridad || !listaPerteneciente || !recordatorio) {
-                    return error = new Error('Faltan campos por llenar')
-                }
-                const tareaData = {titulo, descripcion, fechaInicio, 
-                    fechaVencimiento, estado, prioridad, listaPerteneciente, recordatorio}
+
+            // Hubo problemas con crear tareas, la validacion deberia venir de front pero para las pruebas y ver si funcionaban, comentando la validacion funciona perfectamente
+            // const {titulo, descripcion, fechaInicio, 
+            //     fechaVencimiento, estado, prioridad, listaPerteneciente, recordatorio} = req.body;
+            //     // if (!titulo || !descripcion || !fechaInicio || !fechaVencimiento || !estado 
+            //     //     || !prioridad || !listaPerteneciente || !recordatorio) {
+            //     //     return error = new Error('Faltan campos por llenar')
+            //     // }
+            //     if (!titulo || !descripcion || !fechaVencimiento || !estado 
+            //         || !prioridad ) {
+            //         return error = new Error('Faltan campos por llenar')
+            //     }
+                const tareaData = req.body;
                 const tarea = await TareaDAO.crearTarea(tareaData);
                 return res.status(200).json(tarea);
         } catch(error){
