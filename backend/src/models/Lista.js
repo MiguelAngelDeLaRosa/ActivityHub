@@ -13,6 +13,10 @@ const listaSchema = mongoose.Schema({
     tareas: {
         type: Array,
         required: true
+    },
+    usuario: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Usuario"
     }
 })
 
