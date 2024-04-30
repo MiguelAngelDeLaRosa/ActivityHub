@@ -30,7 +30,8 @@ import clienteAxios from "../helpers/clienteAxios";
       alerta('Iniciando Sesion', 'succes', formulario);
       localStorage.setItem('token', data.token);
       localStorage.setItem('user', JSON.stringify(data));
-      window.location.href = '../pages/administrarTareas.html';      
+      console.log('Hola mundo')
+      window.location.href = '../pages/createTask.html';      
     } catch (error) {
       console.log(error.response);
       alerta(error.response.data.msg, 'error', formulario);
