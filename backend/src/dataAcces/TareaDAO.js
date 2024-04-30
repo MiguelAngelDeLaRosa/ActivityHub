@@ -1,4 +1,5 @@
 import Tarea from '../models/Tarea.js';
+import Usuario from '../models/usuario.js';
 
 class TareaDAO {
     constructor(){}
@@ -24,7 +25,7 @@ class TareaDAO {
 
     static async eliminarTarea(id){
         try {
-            return await Tarea.findByIdAndRemove(id);
+            return await Tarea.findByIdAndDelete(id); // es ByIdAndDelete, no remove
         } catch(error){
             throw error
         }
@@ -38,9 +39,16 @@ class TareaDAO {
         }
     }
 
-    static async obtenerTareas(){
+    static async obtenerTareas(userName){
         try {
-            return await Tarea.find();
+
+            // Primero obtenemos los datos del usuario
+            const usuario = await Usuario.findOne({userName});
+            console.log(usuario);
+
+            if(!usuario) return {msg: 'No existe el usuario'};
+            // Consultamos las tareas que coincidan con el usuario
+            return await Tarea.find({usuario: usuario._id});
         } catch (error) {
             throw error;
         }

@@ -25,7 +25,7 @@ class ListaDAO {
 
     static async eliminarLista(id){
         try {
-            return await Lista.findByIdAndRemove(id);
+            return await Lista.findByIdAndDelete(id);
         } catch (error) {
             throw error;
         }
