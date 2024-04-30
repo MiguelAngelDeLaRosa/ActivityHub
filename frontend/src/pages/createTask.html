@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="../css/TaskCreateStyle.css">
+
+<head> 
+  <meta charset="UTF -8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear Tarea</title>
+</head>
+
+<body>
+  <div class="title">ActivityHub</div>
+  <form>
+    <div class="form-field">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required>
+    </div>
+    <div class="form-field">
+      <label for="descripcion">Descripción:</label>
+      <textarea id="descripcion" name="descripcion" rows="4" cols="50"></textarea>
+    </div>
+    <div class="form-field">
+      <label for="prioridad">Prioridad:</label>
+      <input type="range" id="prioridad" name="prioridad" min="1" max="10" class="range-slider">
+    </div>
+    <div class="form-field">
+      <label for="">Recordatorio</label>
+      <label for="recordatorio" class="checkboxtoggle">
+        <input type="checkbox" id="recordatorio" name="recordatorio">
+        <span class="checkmark"></span>
+    </div>
+    <div class="form-field">
+      <label for="categoria">Categoría:</label>
+      <select id="categoria" name="categoria">
+        <option value="General" selected>General</option>
+      </select>
+    </div>
+    <div class="form-field date">
+      <label for="start-date">Fecha Inicio:</label>
+      <input type="date" id="start-date" name="start-date" required min="2023-01-01">
+
+      <label for="end-date">Fecha Fin:</label>
+      <input type="date" id="end-date" name="end-date" required min="2023-01-01" max="2033-12-31">
+    </div>
+    <button class="agregar-button">Agregar</button>
+  </form>
+</body>
+
+</html>
