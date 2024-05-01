@@ -11,12 +11,11 @@ const router = express.Router();
 // router.get('/', ListaController.obtenerListas)
 // router.put('/agregar/:id', ListaController.agregarTarea);
 // router.put('/remover/:id', ListaController.removerTarea);
-
+router.get('/lista/:id', checkAuth, ListaController.obtenerListaPorId);
+router.get('/:userName', checkAuth, ListaController.obtenerListas);
 router.post('/', checkAuth, ListaController.crearLista);
 router.put('/:id', checkAuth, ListaController.actualizarLista);
 router.delete('/:id', checkAuth, ListaController.eliminarLista);
-router.get('/:id', checkAuth, ListaController.obtenerListaPorId);
-router.get('/', checkAuth, ListaController.obtenerListas)
 // router.put('/agregar/:id', ListaController.agregarTarea);
 // router.put('/remover/:id', ListaController.removerTarea);
 

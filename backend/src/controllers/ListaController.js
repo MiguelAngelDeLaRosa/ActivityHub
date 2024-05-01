@@ -7,7 +7,7 @@ import TareaDAO from '../dataAcces/TareaDAO.js';
 class ListaController {
     static async crearLista(req, res){
         try {
-            const {nombreLista, descripcion, tareas} = req.body;
+            const {nombreLista, descripcion, tareas, usuario} = req.body;
 
             if (!nombreLista || !descripcion) {
                 return new Error('Faltan campos por llenar')
@@ -15,7 +15,7 @@ class ListaController {
             if (!Array.isArray(tareas)){
                 return new Error('Falta la lista para almacenar las tareas');
             }
-            const listaData = {nombreLista, descripcion, tareas};
+            const listaData = {nombreLista, descripcion, tareas, usuario};
             const lista = await ListaDAO.crearLista(listaData);
 
             return res.status(200).json(lista);
@@ -75,7 +75,9 @@ class ListaController {
 
     static async obtenerListas(req, res){
         try {
-            const listas = await ListaDAO.obtenerListas();
+            const userName = req.params.userName;
+            const listas = await ListaDAO.obtenerListas(userName);
+            console.log(userName);
 
             return res.status(200).json({message: "Listas obtenidas con exito", listas})
         } catch (error) {

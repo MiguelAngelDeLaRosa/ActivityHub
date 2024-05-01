@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/TaskCreateStyle.css">
+  <link rel="stylesheet" href="../index.css">
   <title>Crear Tarea</title>
 </head>
 
@@ -32,7 +33,7 @@
     <div class="form-field">
       <label for="categoria">Categoría:</label>
       <select id="categoria" name="categoria">
-        <option value="General" selected>General</option>
+        <option value="" disabled selected>Selecciona una lista</option>
       </select>
     </div>
     <div class="form-field date">
@@ -44,6 +45,8 @@
     </div>
     <button class="agregar-button">Agregar</button>
   </form>
+  </div>
+  <div id="alerta" class="flex text-center justify-center">
   <script type="module" src="../app/administrarTareas.js"></script>
 </body>
 

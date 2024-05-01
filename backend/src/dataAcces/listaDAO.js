@@ -2,6 +2,7 @@
 
 import Tarea from '../models/Tarea.js';
 import Lista from '../models/Lista.js';
+import Usuario from '../models/usuario.js';
 
 class ListaDAO {
     constructor(){}
@@ -39,9 +40,17 @@ class ListaDAO {
         }
     }
 
-    static async obtenerListas(){
+    static async obtenerListas(userName){
         try {
-            return await Lista.find();
+
+            console.log(userName);
+            // Primero obtenemos los datos del usuario
+            const usuario = await Usuario.findOne({userName});
+            console.log(usuario);
+
+            if(!usuario) return {msg: 'No existe el usuario'};
+
+            return await Lista.find({usuario: usuario._id});
         } catch (error) {
             throw error;
         }

@@ -40,7 +40,7 @@ const tareaSchema = mongoose.Schema({
         default: null,
     },
     recordatorio: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Boolean,
         ref: "Recordatorio",
         required: false,
         default: null,
