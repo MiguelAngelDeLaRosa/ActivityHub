@@ -30,8 +30,7 @@ import clienteAxios from "../helpers/clienteAxios";
       alerta('Iniciando Sesion', 'succes', formulario);
       localStorage.setItem('token', data.token);
       localStorage.setItem('user', JSON.stringify(data));
-      console.log('Hola mundo')
-      window.location.href = '../pages/createTask.html';      
+      window.location.href = `../pages/createTask.html?user=${data.userName}`;      
     } catch (error) {
       console.log(error.response);
       alerta(error.response.data.msg, 'error', formulario);
