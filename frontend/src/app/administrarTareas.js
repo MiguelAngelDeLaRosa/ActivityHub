@@ -77,7 +77,7 @@ import clienteAxios from "../helpers/clienteAxios";
       fechaVencimiento,
       listaPerteneciente,
       recordatorio,
-      _id,
+      usuario: _id,
       estado,
     };
 

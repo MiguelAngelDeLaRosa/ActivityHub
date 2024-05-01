@@ -8,7 +8,7 @@ const router = express.Router();
 router.post('/', checkAuth, TareaController.crearTarea);
 router.put('/:id', checkAuth, TareaController.actualizarTarea);
 router.delete('/:id', checkAuth, TareaController.eliminarTarea);
-router.get('/:id', checkAuth, TareaController.obtenerTareaPorId);
-router.get('/', checkAuth, TareaController.obtenerTareas);
+router.get('/tarea/:id', checkAuth, TareaController.obtenerTareaPorId);
+router.get('/:userName', checkAuth, TareaController.obtenerTareas);
 
 export default router;
