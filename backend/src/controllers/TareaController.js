@@ -78,7 +78,7 @@ class TareaController {
     }
 
     static async obtenerTareas(req, res) {
-        const {userName} = req.body
+        const userName = req.params.userName;
         try {
             const tareas = await TareaDAO.obtenerTareas(userName);
 
