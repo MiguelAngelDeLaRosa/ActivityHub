@@ -4,6 +4,12 @@ import generarJWT from "../helpers/generarJWT.js";
 import emailRegistro from "../helpers/emailRegistro.js";
 import emailOlvidePassword from "../helpers/emailOlvidePassword.js";
 
+/**
+ * Registra un nuevo usuario.
+ * @param {Object} req - Objeto de solicitud HTTP.
+ * @param {Object} res - Objeto de respuesta HTTP.
+ * @returns {Object} - Objeto JSON con el usuario registrado.
+ */
 const registrar = async (req, res) => {
     const {email, nombre} = req.body;
     // Verificar si el usuario ya existe
@@ -33,11 +39,23 @@ const registrar = async (req, res) => {
     }
 }
 
+/**
+ * Obtiene el perfil del usuario actual.
+ * @param {Object} req - Objeto de solicitud HTTP.
+ * @param {Object} res - Objeto de respuesta HTTP.
+ * @returns {Object} - Objeto JSON con el perfil del usuario.
+ */
 const perfil = (req, res) => {
     const {usuario} = req;
     res.json(usuario);
 };
 
+/**
+ * Confirma la cuenta de usuario mediante el token proporcionado.
+ * @param {Object} req - Objeto de solicitud HTTP.
+ * @param {Object} res - Objeto de respuesta HTTP.
+ * @returns {Object} - Objeto JSON con un mensaje de confirmación.
+ */
 const confirmar = async (req, res) => {
     console.log(req.params.token);
 
@@ -61,6 +79,12 @@ const confirmar = async (req, res) => {
     }
 }
 
+/**
+ * Autentica a un usuario mediante su correo electrónico y contraseña.
+ * @param {Object} req - Objeto de solicitud HTTP.
+ * @param {Object} res - Objeto de respuesta HTTP.
+ * @returns {Object} - Objeto JSON con los datos del usuario autenticado.
+ */
 const autenticar = async (req, res) => {
     const { email, password } = req.body;
 
@@ -95,6 +119,12 @@ const autenticar = async (req, res) => {
     }
 };
 
+/**
+ * Envia instrucciones para restablecer la contraseña al correo electrónico del usuario.
+ * @param {Object} req - Objeto de solicitud HTTP.
+ * @param {Object} res - Objeto de respuesta HTTP.
+ * @returns {Object} - Objeto JSON con un mensaje de confirmación del correo electrónico enviado.
+ */
 const olvidePassword = async (req, res) => {
     const { email } = req.body;
 
@@ -121,6 +151,13 @@ const olvidePassword = async (req, res) => {
   }
 }
 
+
+/**
+ * Comprueba la validez de un token de usuario.
+ * @param {Object} req - Objeto de solicitud HTTP.
+ * @param {Object} res - Objeto de respuesta HTTP.
+ * @returns {Object} - Objeto JSON con un mensaje de confirmación o error.
+ */
 const comprobarToken = async (req, res) => {
     const { token } = req.params;
 
@@ -134,6 +171,12 @@ const comprobarToken = async (req, res) => {
     }
 };
 
+/**
+ * Establece una nueva contraseña para el usuario con el token proporcionado.
+ * @param {Object} req - Objeto de solicitud HTTP.
+ * @param {Object} res - Objeto de respuesta HTTP.
+ * @returns {Object} - Objeto JSON con un mensaje de confirmación.
+ */
 const nuevoPassword = async (req, res) => {
     const { token } = req.params;
     const { password } = req.body;
@@ -157,6 +200,12 @@ const nuevoPassword = async (req, res) => {
     }
 }
 
+/**
+ * Actualiza el perfil del usuario.
+ * @param {Object} req - Objeto de solicitud HTTP.
+ * @param {Object} res - Objeto de respuesta HTTP.
+ * @returns {Object} - Objeto JSON con el perfil del usuario actualizado.
+ */
 const actualizarPerfil = async (req, res) => {
     const usuario = await Usuario.findById(req.params.id);
     if(!usuario) {
