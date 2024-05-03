@@ -1,8 +1,17 @@
 
 import TareaDAO from '../dataAcces/TareaDAO.js';
 
-
+/**
+ * Controlador para la gestión de tareas.
+ */
 class TareaController {
+
+    /**
+     * Crea una nueva tarea con la información proporcionada.
+     * @param {Object} req - Objeto de solicitud HTTP.
+     * @param {Object} res - Objeto de respuesta HTTP.
+     * @returns {Object} - Objeto JSON con la tarea creada.
+     */
     static async crearTarea(req, res) {
         try {
 
@@ -26,6 +35,12 @@ class TareaController {
         }
     }
 
+    /**
+     * Actualiza una tarea existente con la información proporcionada.
+     * @param {Object} req - Objeto de solicitud HTTP.
+     * @param {Object} res - Objeto de respuesta HTTP.
+     * @returns {Object} - Objeto JSON con la tarea actualizada.
+     */
     static async actualizarTarea(req, res) {
         try {
             const id = req.params.id;
@@ -43,6 +58,12 @@ class TareaController {
         }
     }
 
+    /**
+     * Elimina una tarea existente según su ID.
+     * @param {Object} req - Objeto de solicitud HTTP.
+     * @param {Object} res - Objeto de respuesta HTTP.
+     * @returns {Object} - Objeto JSON con la tarea eliminada.
+     */
     static async eliminarTarea(req, res){
         try {
             const id = req.params.id;
@@ -61,6 +82,12 @@ class TareaController {
         }
     }
 
+    /**
+     * Obtiene una tarea por su ID.
+     * @param {Object} req - Objeto de solicitud HTTP.
+     * @param {Object} res - Objeto de respuesta HTTP.
+     * @returns {Object} - Objeto JSON con la tarea obtenida.
+     */
     static async obtenerTareaPorId(req, res){
         try {
             const id = req.params.id;
@@ -77,6 +104,12 @@ class TareaController {
         }
     }
 
+    /**
+     * Obtiene todas las tareas asociadas a un usuario.
+     * @param {Object} req - Objeto de solicitud HTTP.
+     * @param {Object} res - Objeto de respuesta HTTP.
+     * @returns {Object} - Objeto JSON con las tareas obtenidas.
+     */
     static async obtenerTareas(req, res) {
         const userName = req.params.userName;
         try {
