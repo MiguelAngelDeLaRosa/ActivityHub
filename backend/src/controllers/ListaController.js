@@ -1,3 +1,7 @@
+/*
+Controlador para la gestion de listas y tareas.
+*/
+
 // const ListaDAO = require('../dataAcces/listaDAO');
 // const TareaDAO = require('../dataAcces/TareaDAO');
 
@@ -5,6 +9,12 @@ import ListaDAO from '../dataAcces/listaDAO.js';
 import TareaDAO from '../dataAcces/TareaDAO.js';
 
 class ListaController {
+    /**
+     * Crea una nueva lista con la información proporcionada.
+     * @param {Object} req - Objeto de solicitud HTTP.
+     * @param {Object} res - Objeto de respuesta HTTP.
+     * @returns {Object} - Objeto JSON con la lista creada.
+     */
     static async crearLista(req, res){
         try {
             const {nombreLista, descripcion, tareas, usuario} = req.body;
@@ -24,6 +34,12 @@ class ListaController {
         }
     }
 
+    /**
+     * Actualiza una lista existente con la información proporcionada.
+     * @param {Object} req - Objeto de solicitud HTTP.
+     * @param {Object} res - Objeto de respuesta HTTP.
+     * @returns {Object} - Objeto JSON con la lista actualizada.
+     */
     static async actualizarLista(req, res){
         try {
             const id = req.params.id;
@@ -41,6 +57,12 @@ class ListaController {
         }
     }
 
+    /**
+     * Elimina una lista existente según su ID.
+     * @param {Object} req - Objeto de solicitud HTTP.
+     * @param {Object} res - Objeto de respuesta HTTP.
+     * @returns {Object} - Objeto JSON con la lista eliminada.
+     */
     static async eliminarLista(req, res){
         try {
             const id = req.params.id;
@@ -57,6 +79,12 @@ class ListaController {
         }
     }
 
+    /**
+     * Obtiene una lista por su ID.
+     * @param {Object} req - Objeto de solicitud HTTP.
+     * @param {Object} res - Objeto de respuesta HTTP.
+     * @returns {Object} - Objeto JSON con la lista obtenida.
+     */
     static async obtenerListaPorId(req, res){
         try {
             const id = req.params.id;
@@ -73,6 +101,12 @@ class ListaController {
         }
     }
 
+    /**
+     * Obtiene todas las listas asociadas a un usuario.
+     * @param {Object} req - Objeto de solicitud HTTP.
+     * @param {Object} res - Objeto de respuesta HTTP.
+     * @returns {Object} - Objeto JSON con las listas obtenidas.
+     */
     static async obtenerListas(req, res){
         try {
             const userName = req.params.userName;
@@ -85,6 +119,12 @@ class ListaController {
         }
     }
 
+    /**
+     * Agrega una tarea a una lista existente.
+     * @param {Object} req - Objeto de solicitud HTTP.
+     * @param {Object} res - Objeto de respuesta HTTP.
+     * @returns {Object} - Objeto JSON con un mensaje de éxito.
+     */
     static async agregarTarea(req, res){
         try {
             const id = req.params.id;
@@ -104,6 +144,12 @@ class ListaController {
         }
     }
 
+    /**
+     * Remueve una tarea de una lista existente.
+     * @param {Object} req - Objeto de solicitud HTTP.
+     * @param {Object} res - Objeto de respuesta HTTP.
+     * @returns {Object} - Objeto JSON con un mensaje de éxito.
+     */
     static async removerTarea(req, res){
         try {
             const id = req.params.id;
