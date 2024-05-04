@@ -21,7 +21,7 @@ export const getCategorys = async (userName) => {
 };
 
 
-export const saveTask = async (task) => {
+export const saveList = async (lista) => {
     try {
         const token = localStorage.getItem("token");
     if (!token) return;
@@ -33,7 +33,7 @@ export const saveTask = async (task) => {
       },
     };
 
-    const data = await clienteAxios.post('/tareas', task, config);
+    const data = await clienteAxios.post('/listas', lista, config);
     console.log(data)
     return data;
     } catch (error) {
@@ -41,7 +41,7 @@ export const saveTask = async (task) => {
     }
 }
 
-export const getTasks =  async (userName) => {
+export const getList = async (id) => {
   try {
     const token = localStorage.getItem("token");
     if (!token) return;
@@ -53,11 +53,9 @@ export const getTasks =  async (userName) => {
       },
     };
 
-    // Obtener data de la api
-    const { data } = await clienteAxios(`/tareas/${userName}`, config);
+    const {data} = await clienteAxios(`/listas/${id}`, config);
     return data;
   } catch (error) {
     console.log(error);
-    return false;
   }
 }
