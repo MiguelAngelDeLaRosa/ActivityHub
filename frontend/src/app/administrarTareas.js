@@ -15,6 +15,10 @@ import clienteAxios from "../helpers/clienteAxios";
     const data = await getCategorys(userName); // Obtenemos una respuesta del servidor
     const { listas } = data; // Aqui extraemos las listas
 
+    // Personalizar saludo de header
+    const header = document.querySelector('#userNameHeader');
+    header.textContent = `Bienvenido: ${userName}`;
+
     // cargar los datos del selector en el form desde una funcion que se encargue de todo el proceso:
     const printListas = () => {
       const selectCategoria = document.querySelector("#categoria");

@@ -10,6 +10,17 @@
 </head>
 
 <body>
+  <header class="bg-gray-600 py-4 px-6 flex justify-between items-center">
+    <div id="userNameHeader" class="text-white text-lg">Bienvenido:</div>
+    <nav class="space-x-4">
+        <a href="./index.html" class="text-white hover:text-gray-300">Inicio</a>
+        <a href="./crearLista.html" class="text-white hover:text-gray-300">Crear Listas</a>
+        <a href="./createTask.html" class="text-white hover:text-gray-300">Crear Tareas</a>
+
+    </nav>
+    <button id="singOut" class="text-white hover:text-gray-300">Cerrar Sesión</button>
+</header>
+
   <div class="title">ActivityHub</div>
   <form id="form">
     <div class="form-field">
@@ -34,6 +45,7 @@
       <label for="categoria">Categoría:</label>
       <select id="categoria" name="categoria">
         <option value="" disabled selected>Selecciona una lista</option>
+
       </select>
     </div>
     <div class="form-field date">

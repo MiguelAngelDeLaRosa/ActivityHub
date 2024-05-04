@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="../css/crearListaStyle.css">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/crearListaStyle.css">
+    <link rel="stylesheet" href="../index.css">
     <title>Crear Lista</title>
 </head>
 
 <body>
+    <header class="bg-gray-600 py-4 px-6 flex justify-between items-center">
+        <div id="userNameHeader" class="text-white text-lg">Bienvenido:</div>
+        <nav class="space-x-4">
+            <a href="./index.html" class="text-white hover:text-gray-300">Inicio</a>
+            <a href="./crearLista.html" class="text-white hover:text-gray-300">Crear Listas</a>
+            <a href="./createTask.html" class="text-white hover:text-gray-300">Crear Tareas</a>
+    
+        </nav>
+        <button id="singOut" class="text-white hover:text-gray-300">Cerrar Sesión</button>
+    </header>
     <div class="title">ActivityHub</div>
     <div class="form-container">
-        <form class="form">
+        <form id="form" class="form">
             <fieldset>
                 <legend>Crear lista</legend>
                 <label for="nombreLista">Nombre de la lista:</label>
@@ -22,5 +33,7 @@
             <button type="submit" class="btn-add">Agregar</button>
         </form>
     </div>
+    <div id="alerta" class="flex text-center justify-center"></div>
+    <script src="../app/administrarListas.js" type="module"></script>
 </body>
 </html>
