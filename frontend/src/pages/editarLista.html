@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/crearListaStyle.css">
     <link rel="stylesheet" href="../index.css">
-    <title>Inicio</title>
+    <title>Editar Lista</title>
 </head>
 <body>
     <header class="bg-gray-600 py-4 px-6 flex justify-between items-center">
@@ -24,27 +25,25 @@
               </svg>
         </button>
     </header>
-        <main class="mx-2">
-            <h1 id="titulo" class="text-gray-600 font-black text-6xl"></h1>
-            <div id="alerta"></div>
-            <div class="flex flex-col md:flex-row items-center justify-start mb-4">
-                <div class="flex items-center mb-2 md:mb-0 md:mx-6">
-                    <label for="estadoTarea" class="mr-2">Estado:</label>
-                    <select id="estadoTarea" class="rounded border border-gray-300 p-2 focus:outline-none focus:border-blue-500">
-                        <option value="todos">Todos</option>
-                        <option value="completado">Completadas</option>
-                        <option value="en_proceso">En proceso</option>
-                        <option value="pendiente">Pendientes</option>
-                    </select>
-                </div>
-                <button id="filtrarBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                    Filtrar
-                </button>
-            </div>
-            <div id="container">
+    <main>
+        <div class="title">ActivityHub</div>
+    <div class="form-container">
+        <form id="form" class="form">
+            <fieldset>
+                <legend>Crear lista</legend>
+                <label for="nombreLista">Nombre de la lista:</label>
+                <input type="text" id="nombreLista" name="nombreLista" required><br>
+                <label for="descripcion">Descripcion:</label>
+                <input type="text" id="descripcion" name="descripcion" required><br>
+            </fieldset>
+            <button type="submit" class="btn-add">Agregar</button>
+        </form>
+    </div>
+    <div id="container">
 
-            </div>
-        </main>
-    <script type="module" src="../app/index.js"></script>
+    </div>
+    <div id="alerta" class="flex text-center justify-center"></div>
+    </main>
+    <script src="../app/editList.js" type="module"></script>
 </body>
 </html>

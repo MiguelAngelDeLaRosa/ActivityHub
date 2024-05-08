@@ -88,11 +88,12 @@ export const printTasks = (tareas, container, selectorAlerta) => {
     prioridadTexto.textContent = priorityChanged;
 
     // Validar color
+    if (prioridadTexto.textContent === "Alta") prioridadTexto.classList.add("text-red-600", "font-bold");
     if (prioridadTexto.textContent === "Baja")
       prioridadTexto.classList.add("text-green-600", "font-bold");
     if (prioridadTexto.textContent === "Media")
       prioridadTexto.classList.add("text-yellow-600", "font-bold");
-    prioridadTexto.classList.add("text-red-800", "font-bold");
+    
 
     tarjeta.appendChild(prioridadTexto);
 

@@ -108,4 +108,18 @@ export const printLists = (lists, container, selectorAlerta) => {
     return;
   }
 
+  const editList = (lista) => {
+    const { _id, nombreLista, descripcion, } = lista;
+      // Construir la URL con los parámetros de consulta
+      const queryParams = new URLSearchParams();
+      queryParams.set('_id', _id); // Suponiendo que tienes una propiedad 'id' en tu objeto tarea
+      queryParams.set('nombreLista', nombreLista); // Otros parámetros que quieras enviar
+      queryParams.set('descripcion', descripcion);
+
+
+  
+      // Redirigir al usuario a la página de edición
+      window.location.href = `../pages/editarLista.html?${queryParams.toString()}`;  
+  }
+
 }

@@ -29,11 +29,14 @@ import { usuarioAuth } from "../helpers/userAuth";
       (tarea) => tarea.estado === "completado"
     );
     const tareasEnProceso = tareas.filter(
-      (tarea) => tarea.estado === "En proceso"
+      (tarea) => tarea.estado === "en proceso"
     );
     const tareasPendientes = tareas.filter(
       (tarea) => tarea.estado === "pendiente"
     );
+
+    
+
 
     const btnFiltrar = document.querySelector("#filtrarBtn");
     btnFiltrar.addEventListener("click", () => {
@@ -45,6 +48,7 @@ import { usuarioAuth } from "../helpers/userAuth";
       if(optionSelector === 'pendiente') printTasks(tareasPendientes, divContainer, selectorAlerta);
       if(optionSelector === 'todos') printTasks(tareas, divContainer, selectorAlerta);
       if(optionSelector === 'completado') printTasks(tareasCompletadas, divContainer, selectorAlerta);
+      if(optionSelector === 'en_proceso') printTasks(tareasEnProceso, divContainer, selectorAlerta);
     });
 
     // Personalizar saludo de header
