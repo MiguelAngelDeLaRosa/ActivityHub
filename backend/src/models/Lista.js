@@ -20,6 +20,14 @@ const listaSchema = mongoose.Schema({
     }
 })
 
+listaSchema.set('toJSON', {
+    virtuals: true,
+    versionKey: false,
+    transfom: function( doc, ret, options ){
+        delete ret._id;
+    }
+  });
+
 const Lista = mongoose.model("Lista", listaSchema);
 
 export default Lista;

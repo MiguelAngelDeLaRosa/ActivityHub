@@ -20,6 +20,13 @@ import { saveList } from "../api/listas";
     const header = document.querySelector('#userNameHeader');
     header.textContent = `Bienvenido: ${userName}`;
 
+    // Cerrar sesion
+    const cerrarSesion = document.querySelector("#singOut");
+    cerrarSesion.addEventListener("click", () => {
+      localStorage.clear();
+      window.location.href = "./login.html";
+    });
+
     
     const formulario = document.querySelector("#form");
 

@@ -44,15 +44,22 @@ class TareaDAO {
 
             // Primero obtenemos los datos del usuario
             const usuario = await Usuario.findOne({userName});
-            console.log(usuario);
+            //console.log(usuario);
 
             if(!usuario) return {msg: 'No existe el usuario'};
             // Consultamos las tareas que coincidan con el usuario
-            return await Tarea.find({usuario: usuario._id});
+            try {
+            const tareas = await Tarea.find({usuario: usuario._id}).populate('usuario').populate('listaPerteneciente')
+            console.log(tareas);
+            return tareas;
+            } catch (error) {
+                console.log(error);
+                return error;
+            }
         } catch (error) {
             throw error;
         }
     }
 }
 
-export default TareaDAO
+export default TareaDAO 

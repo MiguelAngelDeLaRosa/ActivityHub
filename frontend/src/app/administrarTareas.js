@@ -19,6 +19,13 @@ import clienteAxios from "../helpers/clienteAxios";
     const header = document.querySelector('#userNameHeader');
     header.textContent = `Bienvenido: ${userName}`;
 
+    // Cerrar sesion
+    const cerrarSesion = document.querySelector("#singOut");
+    cerrarSesion.addEventListener("click", () => {
+      localStorage.clear();
+      window.location.href = "./login.html";
+    });
+
     // cargar los datos del selector en el form desde una funcion que se encargue de todo el proceso:
     const printListas = () => {
       const selectCategoria = document.querySelector("#categoria");
