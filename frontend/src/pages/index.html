@@ -15,11 +15,36 @@
             <a href="./createTask.html" class="text-white hover:text-gray-300">Crear Tareas</a>
     
         </nav>
-        <button id="singOut" class="text-white hover:text-gray-300">Cerrar Sesión</button>
+        <button title="Cerrar Sesión" id="singOut" class="text-white hover:text-gray-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout-2" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M10 8v-2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-2" />
+                <path d="M15 12h-12l3 -3" />
+                <path d="M6 15l-3 -3" />
+              </svg>
+        </button>
     </header>
-    <div>
-        <h1 id="titulo" class="text-gray-600 font-black text-6xl"></h1>
-      </div>
+        <main class="mx-2">
+            <h1 id="titulo" class="text-gray-600 font-black text-6xl"></h1>
+            <div id="alerta"></div>
+            <div class="flex flex-col md:flex-row items-center justify-start mb-4">
+                <div class="flex items-center mb-2 md:mb-0 md:mx-6">
+                    <label for="estadoTarea" class="mr-2">Estado:</label>
+                    <select id="estadoTarea" class="rounded border border-gray-300 p-2 focus:outline-none focus:border-blue-500">
+                        <option value="todos">Todos</option>
+                        <option value="completado">Completadas</option>
+                        <option value="proceso">En proceso</option>
+                        <option value="pendiente">Pendientes</option>
+                    </select>
+                </div>
+                <button id="filtrarBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    Filtrar
+                </button>
+            </div>
+            <div id="container">
+
+            </div>
+        </main>
     <script type="module" src="../app/index.js"></script>
 </body>
 </html>

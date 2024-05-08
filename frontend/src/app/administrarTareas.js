@@ -79,7 +79,7 @@ import clienteAxios from "../helpers/clienteAxios";
     // Paso la validacion
     alerta("Guardando", "succes", alertaDiv);
     // Creo el objeto de tarea
-    const estado = 'creada';
+    const estado = 'pendiente';
     const tarea = {
       titulo,
       descripcion,

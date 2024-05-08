@@ -101,8 +101,8 @@ export const alerta = (mensaje, tipo, selector) => {
     );
   } else {
     alertaDiv.classList.add(
-      "from-indigo-400",
-      "to-indigo-600",
+      "from-green-400",
+      "to-green-600",
       "bg-gradient-to-br",
       "text-center",
       "p-3",
