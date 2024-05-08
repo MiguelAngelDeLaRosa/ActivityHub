@@ -59,3 +59,22 @@ export const getList = async (id) => {
     console.log(error);
   }
 }
+
+export const deleteList = async (id) => {
+  try {
+    const token = localStorage.getItem("token");
+    if (!token) return;
+    // Configuracion necesario para solicitar al servidor
+    const config = {
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    const {data} = await clienteAxios.delete(`/listas/${id}`, config);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}

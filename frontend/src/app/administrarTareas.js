@@ -99,6 +99,9 @@ import clienteAxios from "../helpers/clienteAxios";
     // Mostrar alerta
     alerta("Se ha guardado la tarea", "succes", alertaDiv);
     console.log(data);
+    setTimeout(() => {
+      window.location.href = '../pages/index.html';
+    }, 2000);
   });
 
     
