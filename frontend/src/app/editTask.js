@@ -1,7 +1,7 @@
 import { formatDate, formatDateEdit } from "../helpers/dateFormat";
 import { usuarioAuth } from "../helpers/userAuth";
 import { alerta } from "../helpers/alerta";
-import { getCategorys, saveTask } from "../api/task";
+import { getCategorys, saveTask, updateTask } from "../api/task";
 
 (() => {
   document.addEventListener("DOMContentLoaded", async () => {
@@ -82,6 +82,64 @@ document.querySelector('#start-date').value = fechaInicioFormateada;
 document.querySelector('#end-date').value = fechaFinFormateada;
 // option.value =
 const formulario = document.querySelector("#form");
+
+formulario.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Obtener todos los valores del formulario
+    const titulo = document.querySelector("#nombre").value;
+    const descripcion = document.querySelector("#descripcion").value;
+    const prioridad = document.querySelector("#prioridad").value;
+    const fechaInicio = document.querySelector("#start-date").value;
+    const fechaVencimiento = document.querySelector("#end-date").value;
+    const listaPerteneciente = document.querySelector("#categoria").value;
+    const recordatorio = document.querySelector("#recordatorio").checked;
+
+    const alertaDiv = document.querySelector("#alerta");
+
+    // Validar que los campos esten llenos
+    if (
+      [
+        titulo,
+        descripcion,
+        prioridad,
+        fechaInicio,
+        fechaVencimiento,
+        listaPerteneciente,
+        recordatorio,
+      ].includes("")
+    ) {
+      // Si algun campo esta vacio, devuelve true
+      console.log("Hay campos vacios");
+      return alerta("Se necesita una descripcion", "error", alertaDiv);
+    }
+    // Paso la validacion
+    alerta("Guardando", "succes", alertaDiv);
+    // Creo el objeto de tarea
+    const estado = 'pendiente';
+    const tarea = {
+      titulo,
+      descripcion,
+      prioridad,
+      fechaInicio,
+      fechaVencimiento,
+      listaPerteneciente,
+      recordatorio,
+      usuario: usuario._id,
+      estado,
+    };
+
+    console.log(tarea);
+
+    // Enviamos la tarea al servidor
+    const { data } = await updateTask(_id, tarea);
+    // Mostrar alerta
+    alerta("Se ha guardado la tarea", "succes", alertaDiv);
+    console.log(data);
+    // setTimeout(() => {
+    //     window.location.href = '../pages/index.html';
+    // }, 3000);
+})
 
   });
 })();
