@@ -63,6 +63,15 @@ usuarioSchema.methods.comprobarPassword = async function (
     return await bycript.compare(passwordFormulario, this.password); // Compara y retorna true o false
 };
 
+usuarioSchema.set('toJSON', {
+  virtuals: true,
+  versionKey: false,
+  transfom: function( doc, ret, options ){
+      delete ret._id;
+      delete ret.password;
+  }
+});
+
 const Usuario = mongoose.model("Usuario", usuarioSchema);
 
 export default Usuario;

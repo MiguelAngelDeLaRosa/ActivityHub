@@ -3,6 +3,7 @@ import { alerta } from "../helpers/alerta";
 import { getCategorys, saveTask } from "../api/task";
 import clienteAxios from "../helpers/clienteAxios";
 import { saveList } from "../api/listas";
+import { printLists } from "../helpers/list";
 
 (() => {
   // Dice, que cuando el documento(el HTML) sea cargado por completo, procedera a hacer lo que este dentro de este callback...
@@ -15,10 +16,25 @@ import { saveList } from "../api/listas";
     const { userName, _id } = usuario;
     const data = await getCategorys(userName); // Obtenemos una respuesta del servidor
     const { listas } = data; // Aqui extraemos las listas
+    console.log(listas);
+
+    // Obtener el main
+    const divContainer = document.querySelector("#container");
+    const selectorAlerta = document.querySelector("#alerta");
+
+    // Imprimir listas
+    printLists(listas, divContainer, selectorAlerta);
 
     // Personalizar saludo de header
     const header = document.querySelector('#userNameHeader');
     header.textContent = `Bienvenido: ${userName}`;
+
+    // Cerrar sesion
+    const cerrarSesion = document.querySelector("#singOut");
+    cerrarSesion.addEventListener("click", () => {
+      localStorage.clear();
+      window.location.href = "./login.html";
+    });
 
     
     const formulario = document.querySelector("#form");
@@ -50,6 +66,9 @@ import { saveList } from "../api/listas";
     if(createList) {
         if(createList.status === 200) {
             alerta('Lista agregada con exito', 'succes', alertaDiv);
+            setTimeout(() => {
+              window.location.reload();
+            }, 2000);
             return;
         }
     }

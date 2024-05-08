@@ -19,6 +19,13 @@ import clienteAxios from "../helpers/clienteAxios";
     const header = document.querySelector('#userNameHeader');
     header.textContent = `Bienvenido: ${userName}`;
 
+    // Cerrar sesion
+    const cerrarSesion = document.querySelector("#singOut");
+    cerrarSesion.addEventListener("click", () => {
+      localStorage.clear();
+      window.location.href = "./login.html";
+    });
+
     // cargar los datos del selector en el form desde una funcion que se encargue de todo el proceso:
     const printListas = () => {
       const selectCategoria = document.querySelector("#categoria");
@@ -72,7 +79,7 @@ import clienteAxios from "../helpers/clienteAxios";
     // Paso la validacion
     alerta("Guardando", "succes", alertaDiv);
     // Creo el objeto de tarea
-    const estado = 'creada';
+    const estado = 'pendiente';
     const tarea = {
       titulo,
       descripcion,
@@ -92,6 +99,9 @@ import clienteAxios from "../helpers/clienteAxios";
     // Mostrar alerta
     alerta("Se ha guardado la tarea", "succes", alertaDiv);
     console.log(data);
+    setTimeout(() => {
+      window.location.href = '../pages/index.html';
+    }, 2000);
   });
 
     

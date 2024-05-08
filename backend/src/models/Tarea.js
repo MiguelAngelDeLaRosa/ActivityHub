@@ -49,7 +49,15 @@ const tareaSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Usuario"
     }
-})
+});
+
+tareaSchema.set('toJSON', {
+    virtuals: true,
+    versionKey: false,
+    transfom: function( doc, ret, options ){
+        delete ret._id;
+    }
+});
 
 const Tarea = mongoose.model('Tarea', tareaSchema);
 
